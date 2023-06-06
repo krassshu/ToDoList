@@ -5,6 +5,9 @@ const cookieParser = require("cookie-parser")
 
 const loginRoutes = require("./router/loginRoutes")
 const registrationRoutes = require("./router/registrationRoutes")
+const noteRoutes = require("./router/noteRoutes")
+const { decodeToken } = require("./middleware/authMiddleware")
+
 const app = express()
 
 app.use(express.json())
@@ -12,6 +15,7 @@ app.use(cookieParser())
 
 app.use("/", loginRoutes)
 app.use("/", registrationRoutes)
+app.use("/", decodeToken, noteRoutes)
 
 mongoose
 	.connect(process.env.MONGODB_URI, {
