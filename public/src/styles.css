@@ -113,23 +113,22 @@ app-root {
 
 .main {
   width: 100%;
-  min-height: 100svh;
+  height: 100svh;
 }
 
 .bgc {
+  position: fixed;
   width: 100%;
-  height: 200px;
-  background: linear-gradient(
-    180deg,
-    #bfd8fc 0%,
-    rgba(219, 231, 248, 0.5) 100%
-  );
+  height: 50vh;
+  background: linear-gradient(180deg, #bfd8fc 0%, rgba(219, 231, 248, 0) 100%);
+  z-index: -1;
 }
 .tasks {
   display: flex;
   flex-direction: column;
   gap: 16px;
   padding: 16px;
+  margin-top: 200px;
 }
 .tasks-category {
   padding: 16px;
