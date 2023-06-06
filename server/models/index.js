@@ -10,7 +10,7 @@ const noteSchema = new mongoose.Schema({
 
 const cooperationSchema = new mongoose.Schema({
 	notesCategory: { type: String, required: true },
-	userId: { type: String, required: true },
+	username: { type: String, required: true },
 })
 
 const userSchema = new mongoose.Schema({
