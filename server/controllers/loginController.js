@@ -1,3 +1,4 @@
+const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 const { User } = require("../models")
 
@@ -6,7 +7,7 @@ const login = async (req, res) => {
 	const user = await User.findOne({ username })
 	if (!user) return res.status(400).send("This user does not exist.")
 
-	const validPassword = await User.findOne({ password })
+	const validPassword = await bcrypt.compare(password, user.password)
 	if (!validPassword) return res.status(400).send("This password is invalid.")
 
 	const token = jwt.sign(
